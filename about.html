@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Leslie Cruz Hernandez</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Home"><span class="brand-mark">LC</span></a>
+
+    <nav class="nav-pill" aria-label="Primary">
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link active" href="about.html">About</a>
+      <a class="nav-link" href="portfolio-cli.html">Portfolio CLI</a>
+      <a class="btn" href="assets/resume/CruzHernandez-Leslie-Resume.pdf" download>Resume</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <h1 class="page-title">Hello — I’m Leslie.</h1>
+      <p class="page-subtitle">
+        Computer Science student at Georgia State University (Atlanta). I build clean, practical projects in Python/Flask,
+        focusing on backend logic, data modeling, and portfolio-ready UI polish.
+      </p>
+    </section>
+
+    <section class="project-grid">
+      <article class="card">
+        <h2 class="card-title">What I’m focused on</h2>
+        <p class="muted">
+          Full-stack fundamentals with Flask + SQL, building projects that feel “real” — with good error handling,
+          clean routes, and readable structure.
+        </p>
+        <div class="badges">
+          <span class="badge">Python</span>
+          <span class="badge">Flask</span>
+          <span class="badge">SQL</span>
+          <span class="badge">APIs</span>
+          <span class="badge">Validation</span>
+          <span class="badge">Git/GitHub</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">Currently improving</h2>
+        <ul class="muted" style="margin:0; padding-left:18px;">
+          <li>Deploying + polishing full-stack Flask apps</li>
+          <li>Auth patterns (JWT, sessions, roles)</li>
+          <li>LeetCode practice for DS&A</li>
+          <li>Project docs + clean READMEs</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">Find me online</h2>
+        <div class="actions">
+          <a class="btn ghost" href="https://www.linkedin.com/in/lcruzh/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="https://leetcode.com/u/l_cruzh/" target="_blank" rel="noreferrer">LeetCode</a>
+          <a class="btn ghost" href="https://www.instagram.com/l.cruzh/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+        <div class="actions" style="margin-top:10px;">
+          <a class="btn" href="contact.html">Contact</a>
+          <a class="btn ghost" href="projects.html">View Projects</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Leslie Cruz Hernandez</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

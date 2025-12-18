@@ -4,61 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Leslie Cruz Hernandez</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-<body>
 
-  <header>
-    <h1>Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Home"><span class="brand-mark">LC</span></a>
+
+    <nav class="nav-pill" aria-label="Primary">
+      <a class="nav-link active" href="projects.html">Projects</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="portfolio-cli.html">Portfolio CLI</a>
+      <a class="btn" href="assets/resume/CruzHernandez-Leslie-Resume.pdf" download>Resume</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Workflow Management System</h2>
-      <p>
-        Modular CRUD workflow tracking system built in Python. Initially developed
-        as a CLI application and currently being refactored into a Flask web app.
+  <main class="page">
+    <section class="section">
+      <h1 class="page-title">Projects</h1>
+      <p class="page-subtitle">
+        A few builds I’m expanding into full portfolio pieces with clean UX, solid backend structure, and GitHub-ready documentation.
       </p>
-      <p><strong>Tech:</strong> Python, Flask, CSV, GitHub</p>
-      <p><em>Status: In Progress</em></p>
     </section>
 
-    <section>
-      <h2>Secure Task API</h2>
-      <p>
-        RESTful API supporting authentication, authorization, and task management.
-        Focused on clean endpoint design and data modeling.
-      </p>
-      <p><strong>Tech:</strong> Flask, SQLAlchemy, JWT</p>
-      <p><em>Status: In Progress</em></p>
-    </section>
+    <section class="project-grid">
+      <article class="card">
+        <div class="project-top">
+          <h2 class="card-title">Workflow Management System</h2>
+          <span class="status">In Progress</span>
+        </div>
+        <p class="muted">
+          Modular CRUD workflow tracking system built in Python. Initially developed as a CLI application and currently being refactored into a Flask web app.
+        </p>
+        <div class="badges">
+          <span class="badge">Python</span>
+          <span class="badge">Flask</span>
+          <span class="badge">CSV</span>
+          <span class="badge">SQL</span>
+          <span class="badge">GitHub</span>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
 
-    <section>
-      <h2>Knowledge Management System</h2>
-      <p>
-        Backend system for creating, tagging, searching, and organizing notes using
-        relational database models.
-      </p>
-      <p><strong>Tech:</strong> Flask, SQLAlchemy</p>
-      <p><em>Status: In Progress</em></p>
-    </section>
+      <article class="card">
+        <div class="project-top">
+          <h2 class="card-title">Secure Task API</h2>
+          <span class="status">In Progress</span>
+        </div>
+        <p class="muted">
+          RESTful API supporting authentication, authorization, and task management. Focused on clean endpoints and data modeling.
+        </p>
+        <div class="badges">
+          <span class="badge">Flask</span>
+          <span class="badge">SQLAlchemy</span>
+          <span class="badge">Auth</span>
+          <span class="badge">JWT</span>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
 
-    <section>
-      <h2>File Processing & Validation Engine</h2>
-      <p>
-        Backend engine for ingesting, validating, and processing structured CSV and
-        JSON files with schema enforcement and error handling.
-      </p>
-      <p><strong>Tech:</strong> Python, Flask</p>
-      <p><em>Status: In Progress</em></p>
+      <article class="card">
+        <div class="project-top">
+          <h2 class="card-title">Knowledge Management System</h2>
+          <span class="status">In Progress</span>
+        </div>
+        <p class="muted">
+          Note-management backend enabling users to create, edit, tag, and organize content using relational database models,
+          plus search and filtering for fast retrieval.
+        </p>
+        <div class="badges">
+          <span class="badge">Python</span>
+          <span class="badge">Flask</span>
+          <span class="badge">SQLAlchemy</span>
+          <span class="badge">Search</span>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="project-top">
+          <h2 class="card-title">File Processing & Validation Engine</h2>
+          <span class="status">In Progress</span>
+        </div>
+        <p class="muted">
+          Backend engine for ingesting, validating, and processing structured CSV/JSON files with schema enforcement and error handling.
+        </p>
+        <div class="badges">
+          <span class="badge">Python</span>
+          <span class="badge">Validation</span>
+          <span class="badge">CLI</span>
+          <span class="badge">Error Handling</span>
+        </div>
+        <div class="actions">
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
     </section>
   </main>
 
+  <footer class="footer">
+    <p>© <span id="year"></span> Leslie Cruz Hernandez</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

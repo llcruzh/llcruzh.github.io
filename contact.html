@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Leslie Cruz Hernandez</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Home"><span class="brand-mark">LC</span></a>
+
+    <nav class="nav-pill" aria-label="Primary">
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="portfolio-cli.html">Portfolio CLI</a>
+      <a class="btn" href="assets/resume/CruzHernandez-Leslie-Resume.pdf" download>Resume</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <h1 class="page-title">Contact</h1>
+      <p class="page-subtitle">Email is best — you can also find me on LinkedIn / GitHub / LeetCode.</p>
+    </section>
+
+    <section class="project-grid">
+      <article class="card">
+        <h2 class="card-title">Email</h2>
+        <p class="muted">l.cruzh22@gmail.com</p>
+        <div class="actions">
+          <a class="btn" href="mailto:l.cruzh22@gmail.com?subject=Portfolio%20Inquiry">Send Email</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">Professional</h2>
+        <div class="actions">
+          <a class="btn ghost" href="https://www.linkedin.com/in/lcruzh/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="https://leetcode.com/u/l_cruzh/" target="_blank" rel="noreferrer">LeetCode</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">Social</h2>
+        <div class="actions">
+          <a class="btn ghost" href="https://www.instagram.com/l.cruzh/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Leslie Cruz Hernandez</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

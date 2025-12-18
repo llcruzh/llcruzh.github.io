@@ -3,62 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Computer science student building backend and full-stack applications with Python and Flask. Portfolio of projects and experience." />
   <title>Leslie Cruz Hernandez | Portfolio</title>
-  
-      <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
 </head>
 
 <body>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Home">
-      <!-- replace later with signature logo image -->
       <span class="brand-mark">LC</span>
     </a>
 
     <nav class="nav-pill" aria-label="Primary">
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="portfolio-cli.html">Portfolio CLI</a>
-      <a class="btn-download" href="assets/resume/Leslie_CruzHernandez_Resume.pdf" download>
-        <span aria-hidden="true">⬇︎</span> Resume
-      </a>
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="portfolio-cli.html">Portfolio CLI</a>
+      <a class="btn" href="assets/resume/CruzHernandez-Leslie-Resume.pdf" download>Resume</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <section class="terminal" aria-label="Intro terminal">
-      <div class="terminal-top">
-        <div class="dots">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+  <main>
+    <section class="hero">
+      <div class="terminal" aria-label="Intro terminal">
+        <div class="terminal-top">
+          <div class="dots" aria-hidden="true">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="terminal-title">leslie@portfolio: ~ <span class="cursor"></span></span>
         </div>
-        <span class="terminal-title">leslie@portfolio: ~</span>
+
+        <div class="terminal-body">
+print("Hello! My name is Leslie Cruz Hernandez.")
+
+about_me = {
+  "computer_science_student": True,
+  "college": "Georgia State University",
+  "city": "Atlanta",
+  "focus": ["Python", "Flask", "APIs", "SQL"]
+}
+        </div>
+
+        <div class="terminal-actions">
+          <a class="btn" href="projects.html">View Projects</a>
+          <a class="btn ghost" href="portfolio-cli.html">Open Portfolio CLI</a>
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured">
+      <div class="section">
+        <h1 class="page-title">Featured Projects</h1>
+        <p class="page-subtitle">A few builds I’m actively polishing into portfolio-ready, deployable projects.</p>
       </div>
 
-      <pre class="terminal-body"><code>print("Hello! My name is Leslie Cruz Hernandez.")
-----------------------------------------
-about_me = {
-  "Age": 20,
-  "computer_science_student": True,
-  "College": "Georgia State University",
-  "City": "Atlanta"
-}</code></pre>
+      <div class="project-grid">
+        <article class="card">
+          <div class="project-top">
+            <h2 class="card-title">Workflow Management System</h2>
+            <span class="status">In Progress</span>
+          </div>
+          <p class="muted">
+            Modular CRUD workflow tracker built in Python. Started as a CLI and now refactoring into a Flask web app.
+          </p>
+          <div class="badges">
+            <span class="badge">Python</span>
+            <span class="badge">Flask</span>
+            <span class="badge">SQL</span>
+            <span class="badge">Git</span>
+          </div>
+          <div class="actions">
+            <a class="btn ghost" href="projects.html">Details</a>
+          </div>
+        </article>
 
-      <div class="terminal-actions">
-        <a class="btn" href="projects.html">View Projects</a>
-        <a class="btn ghost" href="portfolio-cli.html">Open Portfolio CLI</a>
-        <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+        <article class="card">
+          <div class="project-top">
+            <h2 class="card-title">Secure Task API</h2>
+            <span class="status">In Progress</span>
+          </div>
+          <p class="muted">
+            RESTful API with authentication/authorization patterns, clean endpoints, and database-backed task management.
+          </p>
+          <div class="badges">
+            <span class="badge">Flask</span>
+            <span class="badge">SQLAlchemy</span>
+            <span class="badge">JWT</span>
+          </div>
+          <div class="actions">
+            <a class="btn ghost" href="projects.html">Details</a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
-</body>
 
+  <footer class="footer">
+    <p>© <span id="year"></span> Leslie Cruz Hernandez</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
