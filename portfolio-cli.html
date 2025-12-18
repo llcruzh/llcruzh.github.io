@@ -4,43 +4,295 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio CLI | Leslie Cruz Hernandez</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 </head>
+
 <body>
   <header class="topbar">
-    <a class="brand" href="index.html"><span class="brand-mark">LC</span></a>
-    <nav class="nav-pill">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a class="btn-download" href="assets/resume/Leslie_CruzHernandez_Resume.pdf" download><span aria-hidden="true">⬇︎</span> Resume</a>
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brand-mark">LC</span>
+    </a>
+
+    <nav class="nav-pill" aria-label="Primary">
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link active" href="portfolio-cli.html">Portfolio CLI</a>
+      <a class="btn" href="assets/resume/CruzHernandez-Leslie-Resume.pdf" download>Resume</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <section class="terminal">
-      <div class="terminal-top">
-        <div class="dots">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+  <main class="page">
+    <section class="section">
+      <h1 class="page-title">Portfolio CLI</h1>
+      <p class="page-subtitle">
+        Terminal-style page: quick commands, clean output, and direct links. (Click a command to copy + run.)
+      </p>
+    </section>
+
+    <section class="grid-2">
+      <!-- Terminal -->
+      <div class="terminal" aria-label="CLI terminal">
+        <div class="terminal-top">
+          <div class="dots" aria-hidden="true">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="terminal-title">leslie@portfolio: ~/cli <span class="cursor"></span></span>
         </div>
-        <span class="terminal-title">portfolio-cli</span>
+
+        <div class="terminal-body" id="cliOutput"></div>
+
+        <div class="terminal-actions">
+          <a class="btn ghost" href="projects.html">View Projects</a>
+          <a class="btn ghost" href="about.html">About</a>
+          <a class="btn ghost" href="contact.html">Contact</a>
+          <a class="btn ghost" href="https://github.com/llcruzh" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
       </div>
 
-      <pre class="terminal-body"><code>Welcome to Leslie's Portfolio CLI 👋
+      <!-- Command Panel -->
+      <div class="card">
+        <h2 class="card-title">Quick Commands</h2>
+        <p class="muted">Click to copy the command, then it auto-runs.</p>
 
-Commands:
-  help        - show commands
-  projects    - list projects
-  about       - show about info
-  links       - GitHub + LinkedIn
+        <div class="actions">
+          <button class="btn cmd-btn" type="button" onclick="clickCmd('help')">
+            help <span class="copy-hint">click to copy</span>
+          </button>
 
-(Interactive version coming soon)</code></pre>
+          <button class="btn ghost cmd-btn" type="button" onclick="clickCmd('ls')">
+            ls <span class="copy-hint">click to copy</span>
+          </button>
+
+          <button class="btn ghost cmd-btn" type="button" onclick="clickCmd('about')">
+            about <span class="copy-hint">click to copy</span>
+          </button>
+
+          <button class="btn ghost cmd-btn" type="button" onclick="clickCmd('projects')">
+            projects <span class="copy-hint">click to copy</span>
+          </button>
+
+          <button class="btn ghost cmd-btn" type="button" onclick="clickCmd('links')">
+            links <span class="copy-hint">click to copy</span>
+          </button>
+
+          <button class="btn ghost cmd-btn" type="button" onclick="clickCmd('contact')">
+            contact <span class="copy-hint">click to copy</span>
+          </button>
+
+          <button class="btn ghost cmd-btn" type="button" onclick="clickCmd('clear')">
+            clear <span class="copy-hint">click to copy</span>
+          </button>
+        </div>
+
+        <div style="height:12px;"></div>
+
+        <h2 class="card-title">Fast Links</h2>
+        <div class="actions">
+          <a class="btn ghost" href="https://www.linkedin.com/in/lcruzh/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://leetcode.com/u/l_cruzh/" target="_blank" rel="noreferrer">LeetCode</a>
+          <a class="btn ghost" href="https://www.instagram.com/l.cruzh/" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn ghost" href="mailto:l.cruzh22@gmail.com?subject=Portfolio%20Inquiry">Email</a>
+        </div>
+
+        <p class="muted" style="margin-top:12px;">
+          Commands supported: help • ls • about • projects • links • contact • clear
+        </p>
+      </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Leslie Cruz Hernandez</p>
+  </footer>
+
+  <!-- toast -->
+  <div class="toast" id="toast">Copied!</div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const out = document.getElementById("cliOutput");
+    const toast = document.getElementById("toast");
+
+    // ===== Typing animation settings =====
+    const TYPE_SPEED = 10;      // smaller = faster
+    const LINE_PAUSE = 120;     // pause between blocks
+
+    // Initial screen
+    const BOOT =
+`Welcome to Leslie's Portfolio CLI 👋
+
+Type a command (or click one on the right).
+
+Commands:
+  help      - show commands
+  ls        - list pages like a filesystem
+  about     - quick bio
+  projects  - list projects
+  links     - open links
+  contact   - email + socials
+  clear     - clear screen
+
+$ `;
+
+    out.textContent = BOOT;
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1200);
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast(`Copied: ${text}`);
+      }catch(e){
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(`Copied: ${text}`);
+      }
+    }
+
+    // ===== Typing printer =====
+    function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+    async function typeString(str){
+      for(const ch of str){
+        out.textContent += ch;
+        out.scrollTop = out.scrollHeight;
+        await sleep(TYPE_SPEED);
+      }
+    }
+
+    async function printBlock(text){
+      // prints: "\n" + text + "\n$ "
+      await typeString("\n" + text + "\n$ ");
+      await sleep(LINE_PAUSE);
+    }
+
+    function resetScreen(){
+      out.textContent = BOOT;
+    }
+
+    // ===== "Filesystem" pages for `ls` =====
+    const FILESYSTEM =
+`/ (site)
+  index.html
+  projects.html
+  about.html
+  portfolio-cli.html
+  contact.html
+  assets/
+    css/styles.css
+    js/main.js
+    resume/CruzHernandez-Leslie-Resume.pdf
+
+Tip: open /projects for full details.`;
+
+    async function runCmd(cmd){
+      cmd = (cmd || "").trim().toLowerCase();
+
+      if(cmd === "clear"){
+        resetScreen();
+        return;
+      }
+
+      if(cmd === "help"){
+        await printBlock(
+`help:
+  about     - quick bio
+  ls        - list pages like a filesystem
+  projects  - list projects
+  links     - open links
+  contact   - email + socials
+  clear     - clear screen`
+        );
+        return;
+      }
+
+      if(cmd === "ls"){
+        await printBlock(FILESYSTEM);
+        return;
+      }
+
+      if(cmd === "about"){
+        await printBlock(
+`about:
+  Name: Leslie Cruz Hernandez
+  Location: Atlanta
+  School: Georgia State University (CS)
+  Focus: Python • Flask • APIs • SQL`
+        );
+        return;
+      }
+
+      if(cmd === "projects"){
+        await printBlock(
+`projects:
+  1) Workflow Management System (Python → Flask)
+  2) Secure Task API (Flask, SQLAlchemy, Auth)
+  3) Knowledge Management System (tagging + search)
+  4) File Processing & Validation Engine (CSV/JSON, schemas)
+
+Tip: Visit /projects for full details.`
+        );
+        return;
+      }
+
+      if(cmd === "links"){
+        await printBlock(
+`links:
+  GitHub:   https://github.com/llcruzh
+  LinkedIn: https://www.linkedin.com/in/lcruzh/
+  LeetCode: https://leetcode.com/u/l_cruzh/
+  Instagram:https://www.instagram.com/l.cruzh/`
+        );
+        return;
+      }
+
+      if(cmd === "contact"){
+        await printBlock(
+`contact:
+  Email: l.cruzh22@gmail.com
+  LinkedIn: https://www.linkedin.com/in/lcruzh/
+  GitHub: https://github.com/llcruzh
+  LeetCode: https://leetcode.com/u/l_cruzh/
+  Instagram: https://www.instagram.com/l.cruzh/`
+        );
+        return;
+      }
+
+      await printBlock(`unknown command: ${cmd}\nTry: help`);
+    }
+
+    // ===== Click command = copy + run =====
+    async function clickCmd(cmd){
+      await copyText(cmd);
+      // show command as if typed
+      await typeString(cmd);
+      // then print output
+      await runCmd(cmd);
+    }
+
+    // Optional: allow keyboard commands (tiny UX win)
+    document.addEventListener("keydown", async (e) => {
+      if(e.key === "Enter"){
+        // you can build a real input later — for now, do nothing
+      }
+    });
+  </script>
 </body>
 </html>
